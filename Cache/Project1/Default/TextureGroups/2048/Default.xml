@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureGroup>
+  <texture scale="0">Default_0.png</texture>
+  <tpe x="4" y="4" tpage="Default_0" entry="8">background0_0.tpe</tpe>
+  <tpe x="1610" y="2" tpage="Default_0" entry="9">fnt_normal_0.tpe</tpe>
+  <tpe x="2" y="910" tpage="Default_0" entry="6">spr_catterpillar_0.tpe</tpe>
+  <tpe x="466" y="910" tpage="Default_0" entry="1">spr_cutlass_player_0.tpe</tpe>
+  <tpe x="1870" y="2" tpage="Default_0" entry="0">spr_hornet_player_0.tpe</tpe>
+  <tpe x="2" y="970" tpage="Default_0" entry="2">spr_hornet_ai_0.tpe</tpe>
+  <tpe x="666" y="910" tpage="Default_0" entry="7">spr_arrow_0.tpe</tpe>
+  <tpe x="466" y="962" tpage="Default_0" entry="5">spr_cargo_0.tpe</tpe>
+  <tpe x="2038" y="2" tpage="Default_0" entry="4">spr_greenlaser_0.tpe</tpe>
+  <tpe x="1870" y="46" tpage="Default_0" entry="3">spr_redlaser_0.tpe</tpe>
+</TextureGroup>
