@@ -29,9 +29,7 @@
 global.player_storage = 0;
 global.playerhp =100;
 global.playercharge=100;
-tick[0]=0;
-tick[1]=0;
-tick[2]=0;
+
 </string>
           </argument>
         </arguments>
@@ -54,13 +52,10 @@ tick[2]=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(tick&gt;60 &amp; global.playercharge&gt;=100 ){
+            <string>if(global.playercharge&gt;=100 ){
     global.playercharge++;
 }
 
-if(tick&gt;150){
-    tick=0;
-}
 
 </string>
           </argument>
@@ -166,7 +161,7 @@ if(global.playerhp&lt;0){
             <kind>1</kind>
             <string>///laser canon
 if(global.playercharge&gt;0){
-    if(tick&gt;60){
+    //if(tick&gt;60){
         bullet = instance_create(x,y,obj_greenlaser);
         bullet.y-=20;
         bullet.x+=30;
@@ -174,8 +169,8 @@ if(global.playercharge&gt;0){
         bullet.image_angle = image_angle;
         bullet.speed = 10;
         global.playercharge--;   
-    } 
-    tick++;
+    //} 
+    //tick++;
 }
 
 
@@ -203,7 +198,7 @@ if(global.playercharge&gt;0){
             <kind>1</kind>
             <string>///laser repeter
 if(global.playercharge&gt;0){
-if(tick[0]&gt;20){
+//if(tick[0]&gt;20){
         bullet = instance_create(x,y,obj_redlaser);
         bullet.y+=12;
         bullet.x+=70;
@@ -211,9 +206,9 @@ if(tick[0]&gt;20){
         bullet.image_angle = image_angle;
         bullet.speed = 15;
         global.playercharge--;
-        tick[0]=0;
-    }
-    tick[0]++;
+  //      tick[0]=0;
+   // }
+   // tick[0]++;
 }
 
 </string>

@@ -40,6 +40,7 @@
     <object>objects\obj_restart</object>
     <object>objects\obj_spawningenemies</object>
     <object>objects\obs_score</object>
+    <object>objects\obj_enemy</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_room0</room>
