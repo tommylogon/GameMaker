@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>hp = global.playerhp;
+
 </string>
           </argument>
         </arguments>
@@ -49,6 +50,8 @@
           <argument>
             <kind>1</kind>
             <string>hp= global.playerhp;
+
+
 </string>
           </argument>
         </arguments>

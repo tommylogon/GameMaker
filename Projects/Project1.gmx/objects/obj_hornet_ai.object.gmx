@@ -26,13 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>///start of first AI
-anchorY = random(room_height);
-frequency = 0.01;
-amplitude = 100;
-timer = 0;
 
-charge=0;
-chargered=0;
+
+
 image_xscale =-1;
 
 dir = -1;
@@ -110,6 +106,34 @@ if(chargered&gt;20){
 charge+=1;
 chargered++;
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>105</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_move_point</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>global.playerX - 60</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>global.playerY</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
           </argument>
         </arguments>
       </action>
