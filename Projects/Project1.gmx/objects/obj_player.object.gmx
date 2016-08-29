@@ -29,7 +29,58 @@
 global.player_storage = 0;
 global.playerhp =100;
 global.playercharge=100;
+laser_repeter_rof = 10;
+laser_cannon_rof = 20;
 
+
+laser_repeter_fireing = false;
+laser_cannon_fireing = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>laser_cannon_fireing = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>laser_repeter_fireing = false;
 </string>
           </argument>
         </arguments>
@@ -52,7 +103,7 @@ global.playercharge=100;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.playercharge&gt;=100 ){
+            <string>if(global.playercharge&lt;=100 ){
     global.playercharge++;
 }
 
@@ -159,18 +210,20 @@ if(global.playerhp&lt;0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///laser canon
+            <string>///laser cannon
 if(global.playercharge&gt;0){
-    //if(tick&gt;60){
+    if(laser_cannon_fireing == false){
+        laser_cannon_fireing = true;
         bullet = instance_create(x,y,obj_greenlaser);
         bullet.y-=20;
         bullet.x+=30;
         bullet.direction = image_angle;
         bullet.image_angle = image_angle;
         bullet.speed = 10;
-        global.playercharge--;   
-    //} 
-    //tick++;
+        global.playercharge-=2;
+        alarm[1]=laser_cannon_rof;   
+    } 
+    
 }
 
 
@@ -198,7 +251,8 @@ if(global.playercharge&gt;0){
             <kind>1</kind>
             <string>///laser repeter
 if(global.playercharge&gt;0){
-//if(tick[0]&gt;20){
+    if(laser_repeter_fireing == false){
+        laser_repeter_fireing = true;
         bullet = instance_create(x,y,obj_redlaser);
         bullet.y+=12;
         bullet.x+=70;
@@ -206,9 +260,9 @@ if(global.playercharge&gt;0){
         bullet.image_angle = image_angle;
         bullet.speed = 15;
         global.playercharge--;
-  //      tick[0]=0;
-   // }
-   // tick[0]++;
+        alarm[0]=laser_repeter_rof;
+    }
+   
 }
 
 </string>

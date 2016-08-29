@@ -20,6 +20,6 @@
   <width>175</width>
   <height>62</height>
   <frames>
-    <frame index="0">images\spr_hornet_player_0.png</frame>
+    <frame index="0">images\spr_hornet_0.png</frame>
   </frames>
 </sprite>

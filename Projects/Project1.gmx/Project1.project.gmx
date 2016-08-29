@@ -6,14 +6,15 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_hornet_player</sprite>
-    <sprite>sprites\spr_cutlass_player</sprite>
-    <sprite>sprites\spr_hornet_ai</sprite>
+    <sprite>sprites\spr_hornet</sprite>
+    <sprite>sprites\spr_cutlass</sprite>
     <sprite>sprites\spr_arrow</sprite>
     <sprite>sprites\spr_cargo</sprite>
     <sprite>sprites\spr_catterpillar</sprite>
     <sprite>sprites\spr_greenlaser</sprite>
     <sprite>sprites\spr_redlaser</sprite>
+    <sprite>sprites\spr_bullet</sprite>
+    <sprite>sprites\spr_explosion</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -41,6 +42,8 @@
     <object>objects\obj_spawningenemies</object>
     <object>objects\obs_score</object>
     <object>objects\obj_enemy</object>
+    <object>objects\obj_bullet</object>
+    <object>objects\obj_explosion</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_room0</room>
