@@ -289,7 +289,7 @@ if(global.playercharge&gt;0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y+=2
+            <string>y+=4
 </string>
           </argument>
         </arguments>
@@ -335,7 +335,7 @@ if(global.playercharge&gt;0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>y-=2
+            <string>y-=4
 </string>
           </argument>
         </arguments>
@@ -358,7 +358,7 @@ if(global.playercharge&gt;0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x-=2
+            <string>x-=4
 </string>
           </argument>
         </arguments>
