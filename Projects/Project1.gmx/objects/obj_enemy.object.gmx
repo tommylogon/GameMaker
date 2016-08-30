@@ -202,7 +202,7 @@ if(AI_charge&lt;=100 ){
           </argument>
           <argument>
             <kind>0</kind>
-            <string>obj_player.y</string>
+            <string>obj_player.y-10</string>
           </argument>
           <argument>
             <kind>0</kind>

@@ -74,8 +74,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(c_white);
-draw_text(64,64,hp);
+            <string>if(hp&gt;66){
+    draw_set_color(c_green);
+}
+else if (hp&lt;66 &amp; hp&gt;33){
+ draw_set_color(c_yellow);   
+}
+else if(hp&lt;33){
+    draw_set_color(c_red);
+}
+
+draw_text(obj_player.x,obj_player.y-70,hp);
 </string>
           </argument>
         </arguments>
