@@ -28,25 +28,36 @@
     <font>fonts\fnt_normal</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_player</object>
     <object>objects\obj_cargo</object>
-    <object>objects\obj_catterpillar</object>
-    <object>objects\obj_cutlass_player</object>
-    <object>objects\obj_greenlaser</object>
-    <object>objects\obj_hornet</object>
-    <object>objects\obj_hornet_ai</object>
     <object>objects\obj_menu</object>
-    <object>objects\obj_playercharge</object>
-    <object>objects\obj_playerhp</object>
-    <object>objects\obj_redlaser</object>
-    <object>objects\obj_restart</object>
-    <object>objects\obj_spawningenemies</object>
-    <object>objects\obs_score</object>
-    <object>objects\obj_enemy</object>
-    <object>objects\obj_bullet</object>
-    <object>objects\obj_explosion</object>
-    <object>objects\obj_small_shield</object>
-    <object>objects\obj_bullet_enemy</object>
+    <objects name="effects">
+      <object>objects\obj_explosion</object>
+      <object>objects\obj_small_shield_enemy</object>
+      <object>objects\obj_small_shield</object>
+      <object>objects\obj_bullet_enemy</object>
+      <object>objects\obj_bullet</object>
+      <object>objects\obj_greenlaser_enemy</object>
+      <object>objects\obj_greenlaser</object>
+      <object>objects\obj_redlaser</object>
+      <object>objects\obj_ballistic_bullet</object>
+      <object>objects\obj_redlaser_enemy</object>
+    </objects>
+    <objects name="ships">
+      <object>objects\obj_catterpillar</object>
+      <object>objects\obj_catterpillar_enemy</object>
+      <object>objects\obj_hornet</object>
+      <object>objects\obj_cutlass</object>
+      <object>objects\obj_hornet_ai</object>
+    </objects>
+    <objects name="sprite_less">
+      <object>objects\obj_player</object>
+      <object>objects\obj_playerhp</object>
+      <object>objects\obj_restart</object>
+      <object>objects\obs_score</object>
+      <object>objects\obj_enemy</object>
+      <object>objects\obj_spawningenemies</object>
+      <object>objects\obj_playercharge</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>

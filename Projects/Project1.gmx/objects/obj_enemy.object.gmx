@@ -28,19 +28,19 @@
             <string>///start of first AI
 
 image_xscale =-1;
-shield = instance_create(x,y,obj_small_shield);
+shield = instance_create(x,y,obj_small_shield_enemy);
 AI_hp =100;
 AI_charge=100;
 
-laser_repeter_rof = 10;
+laser_repeter_rof = 3;
 laser_cannon_rof = 20;
-
+charge_rate = 30;
 
 laser_repeter_fireing = false;
 laser_cannon_fireing = false;
 
 
-
+is_chargeing = false;
 
 
 
@@ -81,8 +81,32 @@ laser_cannon_fireing = false;
           <argument>
             <kind>1</kind>
             <string>global.points+=50;
+
 instance_create(x,y,obj_cargo);
 instance_create(x,y,obj_explosion);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>is_chargeing = false;
 </string>
           </argument>
         </arguments>
@@ -154,62 +178,49 @@ instance_create(x,y,obj_explosion);
             <string>
 if(laser_cannon_fireing == false){
     laser_cannon_fireing = true;
-    bullet =  instance_create(x,y,obj_greenlaser);
+    bullet =  instance_create(x,y,obj_greenlaser_enemy);
     bullet.y-=20;
     bullet.x-=30;
     bullet.direction = image_angle;
     bullet.image_angle = image_angle;
     bullet.speed = -10;
+    AI_charge -=2;
     alarm[1] = laser_cannon_rof;
      
 }
 if(laser_repeter_fireing == false){
     laser_repeter_fireing = true;
-    bullet =  instance_create(x,y,obj_redlaser);
+    bullet =  instance_create(x,y,obj_redlaser_enemy);
     bullet.y+=20;
     bullet.x-=30;
     bullet.direction = image_angle;
     bullet.image_angle = image_angle;
     bullet.speed = -15;
+    AI_charge --;
     alarm[0] =  laser_repeter_rof;
                 
    
 }
 if(AI_charge&lt;=100 ){
+    if(is_chargeing == false){
     AI_charge++;
+    is_chargeing=true;
+    alarm[]=charge_rate;
+    
+    }
+    
+    
 }
-shield.x = obj_enemy.x;
-shield.y = obj_enemy.y;
+if(instance_exists(obj_player)){
+    move_towards_point( obj_player.x+500, obj_player.y, 2 );
+}
+if(instance_exists(obj_small_shield_enemy)){
+    shield.x = obj_enemy.x;
+    shield.y = obj_enemy.y;
 
+
+}
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>105</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_move_point</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>obj_player.x + 600</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>obj_player.y-10</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>2</string>
           </argument>
         </arguments>
       </action>

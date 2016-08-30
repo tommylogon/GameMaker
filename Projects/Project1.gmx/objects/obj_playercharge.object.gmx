@@ -49,6 +49,12 @@
           <argument>
             <kind>1</kind>
             <string>charge= global.playercharge;
+
+hp= global.playerhp;
+
+if(hp&lt;=0){
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>
@@ -72,7 +78,7 @@
           <argument>
             <kind>1</kind>
             <string>draw_set_color(c_white);
-draw_text(64,96,charge);
+draw_text(obj_player.x,obj_player.y-50,charge);
 </string>
           </argument>
         </arguments>

@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="4" ename="obj_redlaser_enemy">
+    <event eventtype="4" ename="obj_redlaser">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,14 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.playercharge-=2;
+            <string>obj_enemy.AI_charge -=2;
 instance_destroy();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_greenlaser_enemy">
+    <event eventtype="4" ename="obj_greenlaser">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -49,8 +49,8 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.playercharge-=4;
-instance_destroy();
+            <string>instance_destroy();
+obj_enemy.AI_charge -=4;
 </string>
           </argument>
         </arguments>
