@@ -46,7 +46,7 @@
     <object>objects\obj_explosion</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_room0</room>
+    <room>rooms\rm_menu</room>
     <room>rooms\rm_room1</room>
   </rooms>
   <help>

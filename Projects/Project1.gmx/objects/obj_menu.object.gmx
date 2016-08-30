@@ -25,9 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>menu[0] = "start";
-menu[1] = "upgrades";
-menu[2] = "exit";
+            <string>menu[0] = "Continue";
+menu[1] = "New game";
+menu[2] = "Options";
+menu[3] = "Credits";
+menu[4] = "Exit";
 space = 64;
 mpos=0;
 </string>
