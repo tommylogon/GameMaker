@@ -15,6 +15,7 @@
     <sprite>sprites\spr_redlaser</sprite>
     <sprite>sprites\spr_bullet</sprite>
     <sprite>sprites\spr_explosion</sprite>
+    <sprite>sprites\spr_small_shield</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
