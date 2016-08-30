@@ -46,6 +46,7 @@
     <object>objects\obj_bullet</object>
     <object>objects\obj_explosion</object>
     <object>objects\obj_small_shield</object>
+    <object>objects\obj_bullet_enemy</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>
