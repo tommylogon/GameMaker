@@ -28,7 +28,7 @@
             <string>///start of first AI
 
 image_xscale =-1;
-
+shield = instance_create(x,y,obj_small_shield);
 AI_hp =100;
 AI_charge=100;
 
@@ -178,6 +178,9 @@ if(laser_repeter_fireing == false){
 if(AI_charge&lt;=100 ){
     AI_charge++;
 }
+shield.x = obj_enemy.x;
+shield.y = obj_enemy.y;
+
 </string>
           </argument>
         </arguments>

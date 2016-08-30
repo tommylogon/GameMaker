@@ -33,7 +33,7 @@ global.playerX=x;
 global.playerY=y;
 laser_repeter_rof = 10;
 laser_cannon_rof = 20;
-
+shield = instance_create(x,y,obj_small_shield);
 
 laser_repeter_fireing = false;
 laser_cannon_fireing = false;
@@ -108,7 +108,8 @@ laser_cannon_fireing = false;
             <string>if(global.playercharge&lt;=100 ){
     global.playercharge++;
 }
-
+shield.x = obj_player.x;
+shield.y = obj_player.y;
 
 </string>
           </argument>
