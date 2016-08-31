@@ -59,6 +59,8 @@
       <object>objects\obj_enemy</object>
       <object>objects\obj_spawningenemies</object>
       <object>objects\obj_playercharge</object>
+      <object>objects\obj_enemy_charge</object>
+      <object>objects\obj_player_ammo</object>
     </objects>
   </objects>
   <rooms name="rooms">
