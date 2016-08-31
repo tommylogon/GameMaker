@@ -76,13 +76,13 @@ if(hp&lt;=0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(hp&gt;66){
+            <string>if(hp&gt;660){
     draw_set_color(c_green);
 }
-else if (hp&lt;66 &amp;&amp; hp&gt;33){
+else if (hp&lt;660 &amp;&amp; hp&gt;330){
  draw_set_color(c_yellow);   
 }
-else if(hp&lt;33){
+else if(hp&lt;330){
     draw_set_color(c_red);
 }
 

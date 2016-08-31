@@ -41,7 +41,7 @@ shield = instance_create(x,y,obj_small_shield);
 
 laser_repeter_fireing = false;
 laser_cannon_fireing = false;
-ballistic_cannon_fireing = false
+ballistic_cannon_fireing = false;
 
 is_chargeing = false;
 </string>

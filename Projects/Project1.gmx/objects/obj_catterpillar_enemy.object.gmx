@@ -32,13 +32,16 @@ shield = instance_create(x,y,obj_medium_shield_enemy);
 
 global.AI_hp =14000;
 AI_charge=1200;
+enemyammo = 600;
 
 laser_repeter_rof = 9;
 laser_cannon_rof = 24;
+ballistic_cannon_rof = 60;
 charge_rate = 20;
 
 laser_repeter_fireing = false;
 laser_cannon_fireing = false;
+ballistic_cannon_fireing = false;
 
 
 is_chargeing = false;
@@ -174,12 +177,12 @@ if(AI_charge&gt;0){
     
     if(laser_repeter_fireing == false){
         laser_repeter_fireing = true;
-        bullet =  instance_create(x,y,obj_redlaser_enemy);
-        bullet.y-=190;
-        bullet.x+=200;
-        bullet.direction = point_direction(x , y, obj_player.x, obj_player.y);
-        bullet.image_angle = image_angle;
-        bullet.speed = 15;
+        bullet1 =  instance_create(x,y,obj_redlaser_enemy);
+        bullet1.y-=19;
+        bullet1.x-=200;
+        bullet1.direction = point_direction(bullet1.x , bullet1.y, obj_player.x, obj_player.y);
+        bullet1.image_angle = image_angle;
+        bullet1.speed = 15;
         AI_charge --;
         alarm[0] =  laser_repeter_rof;
                     
@@ -187,17 +190,32 @@ if(AI_charge&gt;0){
     }
     if(laser_repeter_fireing == false){
         laser_repeter_fireing = true;
-        bullet =  instance_create(x,y,obj_redlaser_enemy);
-        bullet.y+=110;
-        bullet.x-=105;
-        bullet.direction = point_direction(x , y, obj_player.x, obj_player.y);
-        bullet.image_angle = image_angle;
-        bullet.speed = 15;
+        bullet2 =  instance_create(x,y,obj_redlaser_enemy);
+        bullet2.y+=40;
+        bullet2.x+=105;
+        bullet2.direction = point_direction(bullet2.x , bullet2.y, obj_player.x, obj_player.y);
+        bullet2.image_angle = image_angle;
+        bullet2.speed = 15;
         AI_charge --;
         alarm[1] =  laser_repeter_rof;
                     
        
     }
+    
+}
+if(enemyammo&gt;0){
+    if(ballistic_cannon_fireing == false){
+        ballistic_cannon_fireing = true;
+        bullet = instance_create(x,y,obj_ballistic_bullet);
+        bullet.y+=19;
+        bullet.x-=230;
+        bullet.direction = point_direction(x, y, obj_player.x, obj_player.y);
+        bullet.image_angle = image_angle;
+        bullet.speed = 16;
+        global.playerammo--;
+        alarm[2]=ballistic_cannon_rof;
+    }
+   
 }
 
 
