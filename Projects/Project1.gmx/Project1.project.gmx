@@ -42,6 +42,7 @@
       <object>objects\obj_greenlaser</object>
       <object>objects\obj_redlaser</object>
       <object>objects\obj_ballistic_bullet</object>
+      <object>objects\obj_ballistic_bullet_enemy</object>
       <object>objects\obj_redlaser_enemy</object>
     </objects>
     <objects name="ships">

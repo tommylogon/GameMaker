@@ -207,10 +207,14 @@ if(AI_charge&gt;0){
 if(enemyammo&gt;0){
     if(ballistic_cannon_fireing == false){
         ballistic_cannon_fireing = true;
-        bullet = instance_create(x,y,obj_ballistic_bullet);
+        bullet = instance_create(x,y,obj_ballistic_bullet_enemy);
         bullet.y+=19;
         bullet.x-=230;
-        bullet.direction = point_direction(x, y, obj_player.x, obj_player.y);
+        if(obj_player.x &gt; bullet.x){
+            ballistic_cannon_fireing = false;
+            continue;
+        }
+        bullet.direction = point_direction(bullet.x, bullet.y, obj_player.x, obj_player.y);
         bullet.image_angle = image_angle;
         bullet.speed = 16;
         global.playerammo--;
@@ -246,7 +250,7 @@ if(AI_charge&lt;=100 ){
     if(is_chargeing == false){
         AI_charge++;
         is_chargeing=true;
-        alarm[0]=charge_rate;   
+        alarm[3]=charge_rate;   
     }   
 }
 
@@ -272,7 +276,7 @@ if(AI_charge&lt;=100 ){
             <kind>1</kind>
             <string>///movement
 if(instance_exists(obj_player)){
-    move_towards_point( room_width/2, room_height/2, 2 );
+    move_towards_point( (room_width/2)+1, (room_height/2)+1, 2 );
 }
 </string>
           </argument>
@@ -288,7 +292,7 @@ if(instance_exists(obj_player)){
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>obj_small_shield_enemy</whoName>
+        <whoName>obj_medium_shield_enemy</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -296,7 +300,7 @@ if(instance_exists(obj_player)){
             <kind>1</kind>
             <string>///shield offline
 if(obj_enemy.AI_charge &lt;= 0){
-  if(instance_exists(obj_small_shield_enemy)){
+  if(instance_exists(obj_medium_shield_enemy)){
         instance_destroy();   
         }
 }
