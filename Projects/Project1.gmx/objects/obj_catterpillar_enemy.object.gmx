@@ -40,6 +40,7 @@ ballistic_cannon_rof = 60;
 charge_rate = 20;
 
 laser_repeter_fireing = false;
+laser_repeter_fireing1 = false;
 laser_cannon_fireing = false;
 ballistic_cannon_fireing = false;
 
@@ -147,7 +148,7 @@ laser_repeter_fireing = false;
             <string>///fireing laser repeeter
 
 
-laser_repeter_fireing = false;
+laser_repeter_fireing1 = false;
 </string>
           </argument>
         </arguments>
@@ -175,8 +176,8 @@ laser_repeter_fireing = false;
 
 if(AI_charge&gt;0){
     
-    if(laser_repeter_fireing == false){
-        laser_repeter_fireing = true;
+    if(laser_repeter_fireing1 == false){
+        laser_repeter_fireing1 = true;
         bullet1 =  instance_create(x,y,obj_redlaser_enemy);
         bullet1.y-=19;
         bullet1.x-=200;

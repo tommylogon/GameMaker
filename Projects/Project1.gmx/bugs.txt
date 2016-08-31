@@ -1,3 +1,7 @@
-caterpillar rear turrent broken
-caterpillar shield does not turn off
+caterpillar 
+
+jittering movement
+turrets shooting own ship
+rear turrent broken
+shield does not turn off
 balistic cannon not aiming properly
