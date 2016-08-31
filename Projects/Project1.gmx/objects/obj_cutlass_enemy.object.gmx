@@ -144,31 +144,7 @@ instance_destroy();
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>obj_small_shield_enemy</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///shield offline
-if(obj_enemy.AI_charge &lt;= 0){  
-        instance_destroy();   
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
+    <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -185,19 +161,66 @@ if(obj_enemy.AI_charge &lt;= 0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///shields
-if(instance_exists(obj_small_shield_enemy)){
-    shield.x = obj_enemy.x;
-    shield.y = obj_enemy.y;
-}
-
-
-
-
+            <string>/// is chargeing
+is_chargeing = false;
 </string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///fireing laser cannon
+
+
+laser_cannon_fireing = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///fireing laser repeeter
+
+
+laser_repeter_fireing = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -215,9 +238,7 @@ if(instance_exists(obj_small_shield_enemy)){
           <argument>
             <kind>1</kind>
             <string>///weapons
-if(instance_exists(obj_player)){
-    move_towards_point( obj_player.x+500, obj_player.y, 2 );
-}
+
 
 if(AI_charge&gt;0){
     if(laser_cannon_fireing == false){
@@ -244,21 +265,123 @@ if(AI_charge&gt;0){
         alarm[0] =  laser_repeter_rof;
                     
        
+    }
 }
-}
+
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///power
 if(AI_charge&lt;=100 ){
     if(is_chargeing == false){
-    AI_charge++;
-    is_chargeing=true;
-    alarm[]=charge_rate;
-    
+        AI_charge++;
+        is_chargeing=true;
+        alarm[0]=charge_rate;   
+    }   
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///shields
+if(instance_exists(obj_small_shield_enemy)){
+    shield.x = obj_enemy.x;
+    shield.y = obj_enemy.y;
+    if(obj_enemy.AI_charge &lt;= 0){  
+        instance_destroy();   
     }
-    
-    
 }
 
 
 
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>obj_small_shield_enemy</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///shield offline
+if(obj_enemy.AI_charge &lt;= 0){
+  if(instance_exists(obj_small_shield_enemy)){
+        instance_destroy();   
+        }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///movement
+if(instance_exists(obj_player)){
+    move_towards_point( obj_player.x+500, obj_player.y, 2 );
+}
 </string>
           </argument>
         </arguments>

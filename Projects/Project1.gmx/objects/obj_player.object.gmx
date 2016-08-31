@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>///startcode for player object
 global.player_storage = 0;
-global.playerhp =100;
-global.playercharge=100;
+global.playerhp =1000;
+global.playercharge=500;
 global.playerammo = 600;
 
 global.playerX=x;
@@ -90,7 +90,8 @@ is_chargeing = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ballistic_cannon_fireing = false;
+            <string>/// fireing balistic cannon
+ballistic_cannon_fireing = false;
 </string>
           </argument>
         </arguments>
@@ -113,7 +114,8 @@ is_chargeing = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>laser_cannon_fireing = false;
+            <string>///fireing lasr cannon
+laser_cannon_fireing = false;
 </string>
           </argument>
         </arguments>
@@ -136,7 +138,8 @@ is_chargeing = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>laser_repeter_fireing = false;
+            <string>///fireing laser repeeter
+laser_repeter_fireing = false;
 </string>
           </argument>
         </arguments>
@@ -455,7 +458,7 @@ if(global.playerammo&gt;0){
         ballistic_cannon_fireing = true;
         bullet = instance_create(x,y,obj_ballistic_bullet);
         bullet.y+=12;
-        bullet.x+=60;
+        bullet.x+=20;
         bullet.direction = point_direction(x, y, mouse_x, mouse_y);
         bullet.image_angle = image_angle;
         bullet.speed = 16;

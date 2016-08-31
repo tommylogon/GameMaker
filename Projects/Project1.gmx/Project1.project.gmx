@@ -11,6 +11,7 @@
     <sprite>sprites\spr_arrow</sprite>
     <sprite>sprites\spr_cargo</sprite>
     <sprite>sprites\spr_catterpillar</sprite>
+    <sprite>sprites\spr_medium_shield</sprite>
     <sprite>sprites\spr_greenlaser</sprite>
     <sprite>sprites\spr_redlaser</sprite>
     <sprite>sprites\spr_bullet</sprite>
@@ -33,6 +34,7 @@
     <objects name="effects">
       <object>objects\obj_explosion</object>
       <object>objects\obj_small_shield_enemy</object>
+      <object>objects\obj_medium_shield_enemy</object>
       <object>objects\obj_small_shield</object>
       <object>objects\obj_bullet_enemy</object>
       <object>objects\obj_bullet</object>
