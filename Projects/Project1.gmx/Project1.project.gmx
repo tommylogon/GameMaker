@@ -47,11 +47,13 @@
       <object>objects\obj_catterpillar_enemy</object>
       <object>objects\obj_hornet</object>
       <object>objects\obj_cutlass</object>
-      <object>objects\obj_hornet_ai</object>
+      <object>objects\obj_cutlass_enemy</object>
+      <object>objects\obj_hornet_enemy</object>
     </objects>
     <objects name="sprite_less">
       <object>objects\obj_player</object>
       <object>objects\obj_playerhp</object>
+      <object>objects\obj_enemyhp</object>
       <object>objects\obj_restart</object>
       <object>objects\obs_score</object>
       <object>objects\obj_enemy</object>

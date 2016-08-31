@@ -36,7 +36,7 @@ global.playerY=y;
 laser_repeter_rof = 6;
 laser_cannon_rof = 20;
 ballistic_cannon_rof = 15;
-charge_rate=20;
+charge_rate=10;
 shield = instance_create(x,y,obj_small_shield);
 
 laser_repeter_fireing = false;
@@ -44,6 +44,29 @@ laser_cannon_fireing = false;
 ballistic_cannon_fireing = false
 
 is_chargeing = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>obj_small_shield_enemy</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -172,7 +195,7 @@ if(instance_exists(obj_small_shield)){
     shield.y = obj_player.y;
 
 }
- if(global.playercharge==100){
+ if(global.playercharge&gt;10){
     if(!instance_exists(obj_small_shield)){
         shield = instance_create(x,y,obj_small_shield);
     }
@@ -309,7 +332,7 @@ if(global.playercharge&gt;0){
         bullet = instance_create(x,y,obj_greenlaser);
         bullet.y-=20;
         bullet.x+=30;
-        bullet.direction = image_angle;
+        bullet.direction = point_direction(x, y, mouse_x, mouse_y);
         bullet.image_angle = image_angle;
         bullet.speed = 27;
         global.playercharge-=2;
@@ -348,7 +371,7 @@ if(global.playercharge&gt;0){
         bullet = instance_create(x,y,obj_redlaser);
         bullet.y+=12;
         bullet.x+=70;
-        bullet.direction = image_angle;
+        bullet.direction = point_direction(x, y, mouse_x, mouse_y);
         bullet.image_angle = image_angle;
         bullet.speed = 26;
         global.playercharge--;
@@ -357,6 +380,75 @@ if(global.playercharge&gt;0){
    
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="87">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>y-=4
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="83">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>y+=4
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="68">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>x+=4
 </string>
           </argument>
         </arguments>
@@ -386,7 +478,7 @@ if(global.playerammo&gt;0){
         bullet = instance_create(x,y,obj_ballistic_bullet);
         bullet.y+=12;
         bullet.x+=70;
-        bullet.direction = image_angle;
+        bullet.direction = point_direction(x, y, mouse_x, mouse_y);
         bullet.image_angle = image_angle;
         bullet.speed = 16;
         global.playerammo--;
@@ -400,76 +492,7 @@ if(global.playerammo&gt;0){
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="40">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>y+=4
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="39">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>x+=4
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="38">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>y-=4
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="5" enumb="37">
+    <event eventtype="5" enumb="65">
       <action>
         <libid>1</libid>
         <id>603</id>

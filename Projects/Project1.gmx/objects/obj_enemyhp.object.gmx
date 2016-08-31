@@ -25,30 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>is_spawning = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>is_spawning = false;
+            <string>if(instance_exists(obj_enemy)){
+    hp = obj_enemy.AI_hp;
+}
+
+
 </string>
           </argument>
         </arguments>
@@ -65,19 +46,25 @@
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>obj_small_shield_enemy</whoName>
+        <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!instance_exists(obj_enemy)){
-instance_destroy();
+            <string>if(instance_exists(obj_enemy)){
+    hp = obj_enemy.AI_hp;
+
+    if(hp&lt;=0){
+        instance_destroy();
+    }
 }
 </string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -94,30 +81,20 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!instance_exists(obj_enemy)){
-    if(is_spawning == false){
-        is_spawning = true;
-        if(global.points&lt;600){
-           instance_create(random_range(1200,1400),random(room_height),obj_cutlass_enemy); 
-            //instance_create(random_range(1200,1400),random(room_height),obj_hornet_enemy);
-            
-        }
-        else if(global.points &lt; 1200){
-           
-           instance_create(random_range(1200,1400),random(room_height),obj_cutlass_enemy);         
-            
-        }
-        else if(global.points &lt;2400){
-        
-            instance_create(random_range(1200,1400),random(room_height),obj_catterpillar_enemy);
-            
-        }
-        
-           
-        alarm[0] = 160;
-    }
-    
+            <string>if(instance_exists(obj_enemy)){
+    if(hp&gt;66){
+    draw_set_color(c_green);
 }
+else if (hp&lt;66 &amp;&amp; hp&gt;33){
+ draw_set_color(c_yellow);   
+}
+else if(hp&lt;33){
+    draw_set_color(c_red);
+}
+
+draw_text(obj_enemy.x,obj_enemy.y-70,hp);    
+}
+
 </string>
           </argument>
         </arguments>
