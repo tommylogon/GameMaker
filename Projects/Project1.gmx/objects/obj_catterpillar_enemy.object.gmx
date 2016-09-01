@@ -54,6 +54,105 @@ instance_create(x,y,obj_enemy_charge);
         </arguments>
       </action>
     </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// points and cargo
+global.points+=5000;
+
+instance_create(x,y,obj_cargo);
+instance_create(x+22,y+11,obj_cargo);
+instance_create(x-35,y-52,obj_cargo);
+instance_create(x+20,y-11,obj_cargo);
+
+
+instance_create(x,y,obj_explosion);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>obj_enemyhp</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///remove hp
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>obj_enemy_charge</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///remove charge
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>obj_medium_shield_enemy</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///destroy shield
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="3">
       <action>
         <libid>1</libid>
@@ -181,12 +280,17 @@ if(AI_charge&gt;0){
         bullet1 =  instance_create(x,y,obj_redlaser_enemy);
         bullet1.y-=19;
         bullet1.x-=200;
+        if(obj_player.y&lt;=bullet1.y){
         bullet1.direction = point_direction(bullet1.x , bullet1.y, obj_player.x, obj_player.y);
         bullet1.image_angle = image_angle;
         bullet1.speed = 15;
         AI_charge --;
         alarm[0] =  laser_repeter_rof;
-                    
+        }
+        else{
+           with(bullet1) instance_destroy();
+            alarm[0] =  laser_repeter_rof;
+        }            
        
     }
     if(laser_repeter_fireing == false){
@@ -194,12 +298,17 @@ if(AI_charge&gt;0){
         bullet2 =  instance_create(x,y,obj_redlaser_enemy);
         bullet2.y+=40;
         bullet2.x+=105;
+        if(obj_player.y&gt;=bullet2.y){
         bullet2.direction = point_direction(bullet2.x , bullet2.y, obj_player.x, obj_player.y);
         bullet2.image_angle = image_angle;
         bullet2.speed = 15;
         AI_charge --;
         alarm[1] =  laser_repeter_rof;
-                    
+         }
+            else{
+            with(bullet2) instance_destroy();
+            alarm[1] =  laser_repeter_rof;
+            }        
        
     }
     
@@ -210,12 +319,18 @@ if(enemyammo&gt;0){
         bullet = instance_create(x,y,obj_ballistic_bullet_enemy);
         bullet.y+=19;
         bullet.x-=230;
+        if(obj_player.x&lt;bullet.x &amp;&amp; (obj_player.y+100&gt;bullet.y )){
+            bullet.direction = point_direction(bullet.x, bullet.y, obj_player.x, obj_player.y);
+            bullet.image_angle = image_angle;
+             bullet.speed = 16;
+            global.playerammo--;
+            alarm[2]=ballistic_cannon_rof;
+        }
+        else{
+        with(bullet) instance_destroy();
+         alarm[2]=ballistic_cannon_rof;   
+        }
         
-        bullet.direction = point_direction(bullet.x, bullet.y, obj_player.x, obj_player.y);
-        bullet.image_angle = image_angle;
-        bullet.speed = 16;
-        global.playerammo--;
-        alarm[2]=ballistic_cannon_rof;
     }
    
 }
@@ -331,6 +446,33 @@ if(instance_exists(obj_medium_shield_enemy)){
 
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///damage effects
+if(global.AI_hp&lt;700){
+    instance_create(x+32,y-5,obj_explosion);
+}
+else if(global.AI_hp&lt;350){
+    instance_create(120,9,obj_explosion);
+}
 </string>
           </argument>
         </arguments>

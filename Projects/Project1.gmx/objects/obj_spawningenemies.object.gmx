@@ -75,8 +75,8 @@
     if(is_spawning == false){
         is_spawning = true;
         if(global.points&lt;600){
-            //instance_create(random_range(1200,1400),random(room_height),obj_catterpillar_enemy);
-           instance_create(random_range(1200,1400),random(room_height),obj_cutlass_enemy); 
+            instance_create(random_range(1200,1400),random(room_height),obj_catterpillar_enemy);
+           //instance_create(random_range(1200,1400),random(room_height),obj_cutlass_enemy); 
            //instance_create(random_range(1200,1400),random(room_height),obj_hornet_enemy);
             
         }
