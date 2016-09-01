@@ -295,7 +295,7 @@ if(AI_charge&lt;=100 ){
     if(is_chargeing == false){
         AI_charge++;
         is_chargeing=true;
-        alarm[0]=charge_rate;   
+        alarm[2]=charge_rate;   
     }   
 }
 

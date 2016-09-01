@@ -70,8 +70,8 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_menu</room>
-    <room>rooms\rm_grimhex</room>
     <room>rooms\rm_empty_space</room>
+    <room>rooms\rm_grimhex</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
